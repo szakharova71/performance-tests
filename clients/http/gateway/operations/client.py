@@ -5,36 +5,66 @@ from clients.http.client import HTTPClient
 from typing import TypedDict
 
 class GetOperationsQueryDict(TypedDict):
+    """
+    Структура данных для получения списка операций.
+    """
     accountId: str
 
 class GetOperationsSummaryQueryDict(TypedDict):
+    """
+    Структура данных для получения статистики операций.
+    """
     accountId: str
 
 class MakeOperationRequestDict(TypedDict):
+    """
+    Структура данных для общих полей операции.
+    """
     status: str
     amount: float
     cardId: str
     accountId: str
 
 class MakeFeeOperationRequestDict(MakeOperationRequestDict):
+    """
+    Структура данных для операции комиссии.
+    """
     pass
 
 class MakeTopUpOperationRequestDict(MakeOperationRequestDict):
+    """
+    Структура данных для операции пополнения.
+    """
     pass
 
 class MakeCashbackOperationRequestDict(MakeOperationRequestDict):
+    """
+    Структура данных для операции кешбека.
+    """
     pass
 
 class MakeTransferOperationRequestDict(MakeOperationRequestDict):
+    """
+    Структура данных для операции перевода.
+    """
     pass
 
 class MakePurchaseOperationRequestDict(MakeOperationRequestDict):
+    """
+    Структура данных для операции покупки.
+    """
     category: str
 
 class MakeBillPaymentOperationRequestDict(MakeOperationRequestDict):
+    """
+    Структура данных для операции оплаты по счету.
+    """
     pass
 
 class MakeCashWithdrawalOperationRequestDict(MakeOperationRequestDict):
+    """
+    Структура данных для операции снятия наличных.
+    """
     pass
 
 class OperationsGatewayHTTPClient(HTTPClient):

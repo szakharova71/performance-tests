@@ -132,11 +132,11 @@ class AccountsGatewayHTTPClient(HTTPClient):
         """
         return self.post("/api/v1/accounts/open-credit-card-account", json=request)
 
-        # Добавили новый метод
-        def get_accounts(self, user_id: str) -> GetAccountsResponseDict:
-            query = GetAccountsQueryDict(userId=user_id)
-            response = self.get_accounts_api(query)
-            return response.json()
+    # Добавили новый метод
+    def get_accounts(self, user_id: str) -> GetAccountsResponseDict:
+        query = GetAccountsQueryDict(userId=user_id)
+        response = self.get_accounts_api(query)
+        return response.json()
 
     # Добавили новый метод
     def open_deposit_account(self, user_id: str) -> OpenDepositAccountResponseDict:

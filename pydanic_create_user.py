@@ -1,5 +1,6 @@
 
-from pydantic import BaseModel, Field, EmailStr
+from pydantic import BaseModel, Field, EmailStr, ConfigDict
+
 
 class UserSchema(BaseModel):
     """
@@ -17,6 +18,8 @@ class CreateUserRequestSchema(BaseModel):
     """
     Структура данных для создания нового пользователя.
     """
+    model_config = ConfigDict(populate_by_name=True)
+
     email: EmailStr
     last_name: str = Field(alias="lastName")
     first_name: str = Field(alias="firstName")

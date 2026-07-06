@@ -149,73 +149,37 @@ class OperationsGatewayHTTPClient(HTTPClient):
         return GetOperationsSummaryResponseSchema.model_validate_json(response.text)
 
     def make_fee_operation(self, card_id: str, account_id: str) -> MakeFeeOperationResponseSchema:
-        request = MakeFeeOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=100.5,
-            card_id=card_id,
-            account_id=account_id,
-        )
+        request = MakeFeeOperationRequestSchema(card_id=card_id, account_id=account_id)
         response = self.make_fee_operation_api(request)
         return MakeFeeOperationResponseSchema.model_validate_json(response.text)
 
     def make_top_up_operation(self, card_id: str, account_id: str) -> MakeTopUpOperationResponseSchema:
-        request = MakeTopUpOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=100.5,
-            card_id=card_id,
-            account_id=account_id,
-        )
+        request = MakeTopUpOperationRequestSchema(card_id=card_id, account_id=account_id)
         response = self.make_top_up_operation_api(request)
         return MakeTopUpOperationResponseSchema.model_validate_json(response.text)
 
     def make_cashback_operation(self, card_id: str, account_id: str) -> MakeCashbackOperationResponseSchema:
-        request = MakeCashbackOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=100.5,
-            card_id=card_id,
-            account_id=account_id,
-        )
+        request = MakeCashbackOperationRequestSchema(card_id=card_id, account_id=account_id)
         response = self.make_cashback_operation_api(request)
         return MakeCashbackOperationResponseSchema.model_validate_json(response.text)
 
     def make_transfer_operation(self, card_id: str, account_id: str) -> MakeTransferOperationResponseSchema:
-        request = MakeTransferOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=100.5,
-            card_id=card_id,
-            account_id=account_id,
-        )
+        request = MakeTransferOperationRequestSchema(card_id=card_id, account_id=account_id)
         response = self.make_transfer_operation_api(request)
         return MakeTransferOperationResponseSchema.model_validate_json(response.text)
 
     def make_purchase_operation(self, card_id: str, account_id: str) -> MakePurchaseOperationResponseSchema:
-        request = MakePurchaseOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=100.5,
-            card_id=card_id,
-            account_id=account_id,
-            category="taxi",
-        )
+        request = MakePurchaseOperationRequestSchema(card_id=card_id, account_id=account_id)
         response = self.make_purchase_operation_api(request)
         return MakePurchaseOperationResponseSchema.model_validate_json(response.text)
 
     def make_bill_payment_operation(self, card_id: str, account_id: str) -> MakeBillPaymentOperationResponseSchema:
-        request = MakeBillPaymentOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=100.5,
-            card_id=card_id,
-            account_id=account_id,
-        )
+        request = MakeBillPaymentOperationRequestSchema(card_id=card_id, account_id=account_id)
         response = self.make_bill_payment_operation_api(request)
         return MakeBillPaymentOperationResponseSchema.model_validate_json(response.text)
 
     def make_cash_withdrawal_operation(self, card_id: str, account_id: str) -> MakeCashWithdrawalOperationResponseSchema:
-        request = MakeCashWithdrawalOperationRequestSchema(
-            status=OperationStatus.COMPLETED,
-            amount=100.5,
-            card_id=card_id,
-            account_id=account_id,
-        )
+        request = MakeCashWithdrawalOperationRequestSchema(card_id=card_id, account_id=account_id)
         response = self.make_cash_withdrawal_operation_api(request)
         return MakeCashWithdrawalOperationResponseSchema.model_validate_json(response.text)
 

@@ -7,10 +7,10 @@ class UserSchema(BaseModel):
     """
     id: str
     email: EmailStr
-    lastName: str = Field(alias="lastName")
-    firstName: str = Field(alias="firstName")
-    middleName: str = Field(alias="middleName")
-    phoneNumber: str = Field(alias="phoneNumber")
+    last_name: str = Field(alias="lastName")
+    first_name: str = Field(alias="firstName")
+    middle_name: str = Field(alias="middleName")
+    phone_number: str = Field(alias="phoneNumber")
 
 
 class CreateUserRequestSchema(BaseModel):
@@ -18,10 +18,10 @@ class CreateUserRequestSchema(BaseModel):
     Структура данных для создания нового пользователя.
     """
     email: EmailStr
-    lastName: str = Field(alias="lastName")
-    firstName: str = Field(alias="firstName")
-    middleName: str = Field(alias="middleName")
-    phoneNumber: str = Field(alias="phoneNumber")
+    last_name: str = Field(alias="lastName")
+    first_name: str = Field(alias="firstName")
+    middle_name: str = Field(alias="middleName")
+    phone_number: str = Field(alias="phoneNumber")
 
 
 class CreateUserResponseSchema(BaseModel):

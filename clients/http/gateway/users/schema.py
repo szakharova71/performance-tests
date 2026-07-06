@@ -1,5 +1,8 @@
 from pydantic import BaseModel, Field, EmailStr, ConfigDict
 
+from tools.fakers import fake
+
+
 class UserSchema(BaseModel):
     """
     Описание структуры пользователя.
@@ -23,11 +26,20 @@ class CreateUserRequestSchema(BaseModel):
     """
     model_config = ConfigDict(populate_by_name=True)
 
-    email: EmailStr
-    last_name: str = Field(alias="lastName")
-    first_name: str = Field(alias="firstName")
-    middle_name: str = Field(alias="middleName")
-    phone_number: str = Field(alias="phoneNumber")
+    # Добавили генерацию случайного email
+    email: EmailStr = Field(default_factory=fake.email)
+    # default_factory позволяет установить значение по умолчанию,
+    # вызывая функцию при каждом создании экземпляра модели.
+    # В данном случае email будет автоматически заполняться случайным значением.
+
+    # Добавили генерацию случайной фамилии
+    last_name: str = Field(alias="lastName", default_factory=fake.last_name)
+    # Добавили генерацию случайного имени
+    first_name: str = Field(alias="firstName", default_factory=fake.first_name)
+    # Добавили генерацию случайного отчества
+    middle_name: str = Field(alias="middleName", default_factory=fake.middle_name)
+    # Добавили генерацию случайного номер телефона
+    phone_number: str = Field(alias="phoneNumber", default_factory=fake.phone_number)
 
 
 class CreateUserResponseSchema(BaseModel):
